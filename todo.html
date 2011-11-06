@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<title>Todo App</title>
+	<link rel="stylesheet" href="http://eivindingebrigtsen.com/jasmine.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">	
+	<script src="http://eivindingebrigtsen.com/jasmine.js" type="text/javascript" charset="utf-8"></script>	
+	<script src="http://eivindingebrigtsen.com/jasmine-html.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://code.jquery.com/jquery-1.7.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://eivindingebrigtsen.com/handlebars.js" type="text/javascript" charset="utf-8"></script>
+	<style type="text/css" media="screen">
+		body{
+			padding: 20px 0;
+			background: #f6f6f6;
+		}
+		input.long{
+			margin-bottom: 20px	;
+		}
+		footer{
+			text-align: center;
+			margin-bottom: 30px;
+		}
+		.jasmine_reporter{
+			width: 700px;
+			margin: 0 auto;
+		}
+	</style>
+  </head>
+  <body>
+		<div class="container content">
+		<header class="page-header">
+				<h1>Todo List: <small>All I have to do</small></h1>
+				<input type="text" name="todo" value="" id="todo" class="long span13">
+				<button id="add" class="btn primary span3">Add</button>
+		</header>
+		<div class="row">
+			<section class="span16">						
+				<ul id="todo_items" class="inputs-list">
+				</ul>
+			</section>		
+		</div>
+		<footer>
+			ToDo Company &copy;
+		</footer>	
+		</div>
+		<script src="todo.js" type="text/javascript" charset="utf-8"></script>
+		<script src="spec.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">	
+		$(function(){
+			window.reporter = new jasmine.TrivialReporter(); 
+			jasmine.getEnv().addReporter(reporter);
+			jasmine.getEnv().execute();			
+		});
+	</script>
+  </body>
+</html>
