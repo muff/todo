@@ -3,8 +3,8 @@
   <head>
 	<meta charset="utf-8">
 	<title>Todo App</title>
-	<link rel="stylesheet" href="http://eivindingebrigtsen.com/jasmine.css" type="text/css" media="screen" title="no title" charset="utf-8">
-	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">	
+	<link rel="stylesheet" href="libs/jasmine.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<link rel="stylesheet" href="libs/bootstrap.min.css">	
 	<style type="text/css" media="screen">
 		body{
 			padding: 30px 0;
@@ -18,12 +18,15 @@
 			padding: 10px 0;
 			-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 		}
+		#todo_items li.done{
+			text-decoration: line-through;
+		}
 		#todo_items label{
 			padding: 0;
 			width: auto;
 			font-size: 14px;
 		}
-		#todo_items input{
+		#todo_items input[type="checkbox"]{
 			margin-left: 5px;
 		}
 		footer{
@@ -33,6 +36,7 @@
 	</style>
   </head>
   <body>
+  	
 		<div class="container content">
 		<header class="page-header">
 				<h1 class="span16">Todo List: <small>All I have to do</small></h1>
@@ -42,31 +46,34 @@
 		<div class="row">
 			<section class="span16">						
 				<ul id="todo_items" class="unstyled">
-					<li id="todo-0">
-						<div class="row">
-							<span class="span1"><input type="checkbox" name="todo-0-chech" id="todo-0-chech"></span>
-							<span class="span15"><label for="todo-0-chech">Kjøpe melk</label></span>
-						</div>
+					<li class="row" id="todo-item-{{id}}">
+						<span class="span1">
+							<input type="checkbox" name="todo-{{id}}" id="todo-{{id}}" />
+						</span>
+						<span class="span15">
+							<label for="todo-{{id}}">{{title}}</label>
+						</span>
 					</li>
 				</ul>
 			</section>		
 		</div>
 		<footer>
-			ToDo Company &copy;
+			2011 &copy; ToDo Company
 		</footer>	
 		</div>
-		<script src="http://eivindingebrigtsen.com/jasmine.js" type="text/javascript" charset="utf-8"></script>	
-		<script src="http://eivindingebrigtsen.com/jasmine-html.js" type="text/javascript" charset="utf-8"></script>
-		<script src="http://code.jquery.com/jquery-1.7.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="http://eivindingebrigtsen.com/handlebars.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/jasmine.js" type="text/javascript" charset="utf-8"></script>	
+		<script src="libs/jasmine-html.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/jquery-1.7.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/handlebars.js" type="text/javascript" charset="utf-8"></script>
 		<script src="todo.js" type="text/javascript" charset="utf-8"></script>
 		<script src="spec.js" type="text/javascript" charset="utf-8"></script>
+
 		<script type="text/javascript">	
-		$(function(){
-			window.reporter = new jasmine.TrivialReporter(); 
-			jasmine.getEnv().addReporter(reporter);
-			jasmine.getEnv().execute();			
-		});
-	</script>
+			$(function(){
+				window.reporter = new jasmine.TrivialReporter(); 
+				jasmine.getEnv().addReporter(reporter);
+				jasmine.getEnv().execute();			
+			});
+		</script>
   </body>
 </html>

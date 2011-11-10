@@ -1,4 +1,4 @@
-#jsTodo
+# Todo
 a very small todo app in javascript,
 - Jasmine-Behaviour driven development
 - jQuery for DOM manipulation
